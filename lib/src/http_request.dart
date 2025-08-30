@@ -62,7 +62,7 @@ class HttpRequest {
     try {
       return await dio.get<T>(
         path,
-        queryParameters: queryParameters,
+        queryParameters: queryParameters ?? {},
         data: data,
       );
     } on DioException catch (e) {
@@ -81,7 +81,7 @@ class HttpRequest {
       return await dio.post<T>(
         path,
         data: data,
-        queryParameters: queryParameters,
+        queryParameters: queryParameters ?? {},
         options: Options(
           contentType: contentType,
         ),
@@ -102,7 +102,7 @@ class HttpRequest {
       return await dio.patch<T>(
         path,
         data: data,
-        queryParameters: queryParameters,
+        queryParameters: queryParameters ?? {},
         options: Options(
           contentType: contentType,
         ),
@@ -123,7 +123,7 @@ class HttpRequest {
       return await dio.put<T>(
         path,
         data: data,
-        queryParameters: queryParameters,
+        queryParameters: queryParameters ?? {},
         options: Options(
           contentType: contentType,
         ),
@@ -143,7 +143,7 @@ class HttpRequest {
       return await dio.delete<T>(
         path,
         data: data,
-        queryParameters: queryParameters,
+        queryParameters: queryParameters ?? {},
       );
     } on DioException catch (e) {
       return _throwException(e);
